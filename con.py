@@ -34,6 +34,8 @@ def processRequest(req):
         url="http://117.204.250.138/Covid19mgt/CovidBedInfo.aspx"
         ds=requests.get(url)
         sp=bs4.BeautifulSoup(ds.text,'html.parser')
+        l1=https://goo.gl/maps/MsYTYohRebWiuSVR8
+        l3=https://goo.gl/maps/C2jCPVxdErcWbAgM8
         n=[]
         ao=[]
         co=[]
@@ -54,7 +56,7 @@ def processRequest(req):
         for data in sp.find_all('tr')[26:29]:
             for d in data.find_all('td')[10]:
                 wb.append(d)
-        info="1) "+n[0]+'\n'+"Administrative Officer :"+" "+ao[0]+'\n'+"Contact No :"+" "+co[0]+'\n'+"ICU Beds Available :"+" "+ib[0]+'\n'+"Ward Beds Available :"+" "+wb[0]+'\n'+'\n'+"2) "+n[1]+'\n'+"Administrative Officer :"+" "+ao[1]+'\n'+"Contact No :"+" "+co[1]+'\n'+"ICU Beds Available :"+" "+ib[1]+'\n'+"Ward Beds Available :"+" "+wb[1]+'\n'+'\n'+"3) "+n[2]+'\n'+"Administrative Officer :"+" "+ao[2]+'\n'+"Contact No :"+" "+co[2]+'\n'+"ICU Beds Available :"+" "+ib[2]+'\n'+"Ward Beds Available :"+" "+wb[2]
+        info="1) "+n[0]+'\n'+"Administrative Officer :"+" "+ao[0]+'\n'+"Contact No :"+" "+co[0]+'\n'+"ICU Beds Available :"+" "+ib[0]+'\n'+"Ward Beds Available :"+" "+wb[0]+'\n'+"Location :"+l1+'\n'+'\n'+"2) "+n[1]+'\n'+"Administrative Officer :"+" "+ao[1]+'\n'+"Contact No :"+" "+co[1]+'\n'+"ICU Beds Available :"+" "+ib[1]+'\n'+"Ward Beds Available :"+" "+wb[1]+'\n'+'\n'+"3) "+n[2]+'\n'+"Administrative Officer :"+" "+ao[2]+'\n'+"Contact No :"+" "+co[2]+'\n'+"ICU Beds Available :"+" "+ib[2]+'\n'+"Ward Beds Available :"+" "+wb[2]+'\n'+"Location :"+l2
         return {
             "fulfillmentText": info
           }
