@@ -39,8 +39,6 @@ def processRequest(req):
         co=[]
         ib=[]
         wb=[]
-        start = "\033[1m"
-        end = "\033[0;0m"
         for data in sp.find_all('tr')[26:29]:
             for d in data.find_all('td')[2]:
                 n.append(d)
@@ -56,7 +54,7 @@ def processRequest(req):
         for data in sp.find_all('tr')[26:29]:
             for d in data.find_all('td')[10]:
                 wb.append(d)
-        info=start+"1) "+n[0]+end+'\n'+"Administrative Officer :"+" "+ao[0]+'\n'+"Contact No :"+" "+co[0]+'\n'+"ICU Beds Available :"+" "+ib[0]+'\n'+"Ward Beds Available :"+" "+wb[0]+'\n'+'\n'+start+"2) "+n[1]+end+'\n'+"Administrative Officer :"+" "+ao[1]+'\n'+"Contact No :"+" "+co[1]+'\n'+"ICU Beds Available :"+" "+ib[1]+'\n'+"Ward Beds Available :"+" "+wb[1]+'\n'+'\n'+start+"3) "+n[2]+end+'\n'+"Administrative Officer :"+" "+ao[2]+'\n'+"Contact No :"+" "+co[2]+'\n'+"ICU Beds Available :"+" "+ib[2]+'\n'+"Ward Beds Available :"+" "+wb[2]
+        info="1) "+n[0]+'\n'+"Administrative Officer :"+" "+ao[0]+'\n'+"Contact No :"+" "+co[0]+'\n'+"ICU Beds Available :"+" "+ib[0]+'\n'+"Ward Beds Available :"+" "+wb[0]+'\n'+'\n'+"2) "+n[1]+'\n'+"Administrative Officer :"+" "+ao[1]+'\n'+"Contact No :"+" "+co[1]+'\n'+"ICU Beds Available :"+" "+ib[1]+'\n'+"Ward Beds Available :"+" "+wb[1]+'\n'+'\n'+"3) "+n[2]+'\n'+"Administrative Officer :"+" "+ao[2]+'\n'+"Contact No :"+" "+co[2]+'\n'+"ICU Beds Available :"+" "+ib[2]+'\n'+"Ward Beds Available :"+" "+wb[2]
         return {
             "fulfillmentText": info
           }
