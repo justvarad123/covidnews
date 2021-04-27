@@ -41,21 +41,19 @@ def processRequest(req):
         co=[]
         ib=[]
         wb=[]
-        for data in sp.find_all('tr')[26:29]:
-            for d in data.find_all('td')[2]:
-                n.append(d)
-        for data in sp.find_all('tr')[26:29]:
-            for d in data.find_all('td')[4]:
-                ao.append(d)
-        for data in sp.find_all('tr')[26:29]:
-            for d in data.find_all('td')[5]:
-                co.append(d)
-        for data in sp.find_all('tr')[26:29]:
-            for d in data.find_all('td')[7]:
-                ib.append(d)
-        for data in sp.find_all('tr')[26:29]:
-            for d in data.find_all('td')[10]:
-                wb.append(d)
+        for data in sp.find_all('tr')[25:32]:
+            for d in data.find_all('td')[1]:
+                if(d=="TASGAON"):
+                    for d in data.find_all('td')[2]:
+                        n.append(d)
+                    for d in data.find_all('td')[4]:
+                        ao.append(d)
+                    for d in data.find_all('td')[5]:
+                        co.append(d)
+                    for d in data.find_all('td')[7]:
+                        ib.append(d)
+                    for d in data.find_all('td')[10]:
+                        wb.append(d)
         info="1) "+n[0]+'\n'+"Administrative Officer :"+" "+ao[0]+'\n'+"Contact No :"+" "+co[0]+'\n'+"ICU Beds Available :"+" "+ib[0]+'\n'+"Ward Beds Available :"+" "+wb[0]+'\n'+"Location :"+" "+l1+'\n'+'\n'+"2) "+n[1]+'\n'+"Administrative Officer :"+" "+ao[1]+'\n'+"Contact No :"+" "+co[1]+'\n'+"ICU Beds Available :"+" "+ib[1]+'\n'+"Ward Beds Available :"+" "+wb[1]+'\n'+'\n'+"3) "+n[2]+'\n'+"Administrative Officer :"+" "+ao[2]+'\n'+"Contact No :"+" "+co[2]+'\n'+"ICU Beds Available :"+" "+ib[2]+'\n'+"Ward Beds Available :"+" "+wb[2]+'\n'+"Location :"+" "+l3
         return {
             "fulfillmentText": info
